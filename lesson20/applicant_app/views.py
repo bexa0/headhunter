@@ -4,8 +4,8 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView, UpdateView
 
-from applicant_app.models import *
-from employer_app.models import *
+from applicant_app.models import Resume
+from employer_app.models import Vacancy
 
 
 class StartPageView(TemplateView):
@@ -100,16 +100,17 @@ def resume_delete_view(request):
 class ResumeUpdateView(UpdateView):
     template_name = 'applicant_app/resume_update.html'
     model = Resume
+    slug_url_kwarg = 'resume_slug'
     fields = ('name_vacancy', 'name', 'surname', 'middle_name', 'date_born', 'email', 'skills',
               'professional_experience', 'education')
     success_url = reverse_lazy('vacancy_list')
 
 
-def resume_update_view(request, resume_slug):
-    resume_s = get_object_or_404(Resume, slug=resume_slug)
-    context = {'resume_slug': resume_s}
-
-    return render(request, 'applicant_app/resume_update.html', context)
+# def resume_update_view(request, resume_slug):
+#     resume_s = get_object_or_404(Resume, slug=resume_slug)
+#     context = {'resume_slug': resume_s}
+#
+#     return render(request, 'applicant_app/resume_update.html', context)
 
 
 # def resume_update_view(request, id):
