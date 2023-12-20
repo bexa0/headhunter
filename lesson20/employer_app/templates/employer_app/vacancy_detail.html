@@ -1,0 +1,27 @@
+{% extends 'employer_app/base.html' %}
+
+{% block title %}
+    Vacancy Detail Page
+{% endblock %}
+
+{% block content %}
+
+    <h1>Vacancy Detail</h1>
+
+    <p><a href="{% url 'create_resume' %}">Create Resume</a></p>
+    <p><a href="{% url 'update_resume' resume_slug.slug %}">Update Resume</a></p>
+    <p><a href="{% url 'delete_resume' %}">Delete Resume</a></p>
+
+
+    <br>
+    <p>{{ vacancy_slug.name_vacancy }}</p>
+    <p>{{ vacancy_slug.name_company }}</p>
+    <p>{{ vacancy_slug.salary }}</p>
+    <p>{{ vacancy_slug.required_skills }}</p>
+    <p>{{ vacancy_slug.responsibilities }}</p>
+    <p>{{ vacancy_slug.address }}</p>
+    <br>
+    <p><a href="{% url 'main' %}">Back</a></p>
+    <p><a href="{% url 'vacancy_list' %}">Back to Vacancy List</a></p>
+
+{% endblock content %}

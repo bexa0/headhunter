@@ -1,0 +1,19 @@
+{% extends 'employer_app/base.html' %}
+
+{% block title %}
+    Vacancy List Page
+{% endblock %}
+
+{% block content %}
+
+    <h1>Vacancy List</h1>
+
+    {% for vacancy in vacancy_list %}
+        <p>{{ vacancy }}</p>
+        <p><a href="{% url 'vacancy_detail' vacancy.slug %}">Details</a></p>
+    {% endfor %}
+
+    <br>
+    <p><a href="{% url 'main' %}">Back</a></p>
+
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% extends 'applicant_app/base.html' %}
+
+{% block title %}
+    Resume Update Page
+{% endblock %}
+
+{% block content %}
+
+    <h1>Resume Update</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <p>name vacancy</p>
+        <input value="{{ resume_slug.name_vacancy }}" type="text" name="name_vacancy">
+
+        <p>name</p>
+        <input value="{{ resume_slug.name }}" type="text" name="name">
+
+        <p>surname</p>
+        <input value="{{ resume_s.surname }}" type="text" name="surname">
+
+        <p>middle name</p>
+        <input value="{{ resume_s.middle_name }}" type="text" name="middle_name">
+
+        <p>date born</p>
+        <input value="{{ resume_s.date_born }}" type="date" name="date_born">
+
+        <p>email</p>
+        <input value="{{ resume_s.email }}" type="email" name="email">
+
+        <p>skills</p>
+        <input value="{{ resume_s.skills }}" type="text" name="skills">
+
+        <p>professional experience</p>
+        <input value="{{ resume_s.professional_experience }}" type="text" name="professional_experience">
+
+        <p>education</p>
+        <input value="{{ resume_s.education }}" type="text" name="education">
+        <br>
+
+        <input type="submit" value="Update">
+    </form>
+
+    <br>
+    <p><a href="{% url 'vacancy_list' %}">Back to Vacancy List</a></p>
+
+{% endblock content %}

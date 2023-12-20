@@ -1,0 +1,29 @@
+{% extends 'applicant_app/base.html' %}
+
+{% block title %}
+    Resume List Page
+{% endblock %}
+
+{% block content %}
+
+    <h1>Resume List</h1>
+
+    <p><a href="{% url 'vacancy_create' %}">Create Vacancy</a></p>
+    <p><a href="">Update Vacancy</a></p>
+    <p><a href="{% url 'vacancy_delete' %}">Delete Vacancy</a></p>
+
+    <p>{{ resume_slug.name_vacancy }}</p>
+    <p>{{ resume_slug.name }}</p>
+    <p>{{ resume_slug.surname }}</p>
+    <p>{{ resume_slug.middle_name }}</p>
+    <p>{{ resume_slug.date_born }}</p>
+    <p>{{ resume_slug.email }}</p>
+    <p>{{ resume_slug.skills }}</p>
+    <p>{{ resume_slug.professional_experience }}</p>
+    <p>{{ resume_slug.education }}</p>
+
+    <br>
+    <p><a href="{% url 'main' %}">Back</a></p>
+    <p><a href="{% url 'resume_list' %}">Back to Resume List</a></p>
+
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'applicant_app/base.html' %}
+
+{% block title %}
+    Resume Delete
+{% endblock %}
+
+{% block content %}
+
+    <h1>Resume delete</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <p>Удаление по имени</p>
+        <input type="text" name="name">
+        <br><br>
+        <button type="submit">Delete</button>
+    </form>
+
+    <p><a href="{% url 'vacancy_list' %}">Back to Vacancy List</a></p>
+
+{% endblock content %}

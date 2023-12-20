@@ -1,0 +1,34 @@
+{% extends 'applicant_app/base.html' %}
+
+{% block title %}
+    Resume Create
+{% endblock title %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <p>name vacancy</p>
+        <input type="text" name="name_vacancy">
+
+        <p>name company</p>
+        <input type="text" name="name_company">
+
+        <p>salary</p>
+        <input type="number" name="salary">
+
+        <p>required skills</p>
+        <input type="text" name="required_skills">
+
+        <p>responsibilities</p>
+        <input type="text" name="responsibilities">
+
+        <p>address</p>
+        <input type="number" name="address">
+
+        <br><br>
+        <input type="submit">
+
+        <p><a href="{% url 'resume_list' %}">Back to Resume List</a></p>
+
+    </form>
+{% endblock content %}

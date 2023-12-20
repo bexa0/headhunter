@@ -1,0 +1,29 @@
+{% extends 'applicant_app/base.html' %}
+
+{% block title %}
+    Start Page
+{% endblock title%}
+
+{% block content %}
+
+    <h1>Start Page</h1>
+<!--    <p><a href="{% url 'vacancy_list' %}">Vacancy List</a></p>-->
+
+    {% if user.is_authenticated %}
+        {% if user.is_staff %}
+            <p><a href="{% url 'resume_list' %}">Resume List</a></p>
+            <p><a href="{% url 'vacancy_list_staff' %}">Vacancy List Staff</a></p>
+        {% else %}
+            <p><a href="{% url 'vacancy_list' %}">Vacancy List</a></p>
+        {% endif %}
+
+        <p><a href="{% url 'log_out' %}">Log out</a></p>
+
+    {% else %}
+        <p><a href="{% url 'sign_up' %}">Sign up</a></p>
+        <p><a href="{% url 'log_in' %}">Log in</a></p>
+    {% endif %}
+
+
+
+{% endblock content %}

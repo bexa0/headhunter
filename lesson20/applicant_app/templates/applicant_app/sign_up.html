@@ -1,0 +1,17 @@
+{% extends 'applicant_app/base.html' %}
+
+{% block title %}
+    Sign up
+{% endblock %}
+
+{% block content %}
+    <h1>Sign up</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Sign Up">
+    </form>
+
+    <p><a href="{% url 'main' %}">Back</a></p>
+{% endblock content %}
