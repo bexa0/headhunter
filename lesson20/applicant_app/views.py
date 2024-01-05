@@ -4,7 +4,9 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView, UpdateView
 
+from applicant_app.forms import ResumeForm
 from applicant_app.models import Resume
+from employer_app.forms import VacancyForm
 from employer_app.models import Vacancy
 
 
@@ -45,42 +47,22 @@ def vacancy_list_view(request):
     return render(request, 'applicant_app/vacancy_list.html', context)
 
 
-def vacancy_detail_view(request, vacancy_slug, resume_slug):
+def vacancy_detail_view(request, vacancy_slug):
     vacancy = Vacancy.objects.get(slug=vacancy_slug)
-    resume_s = Resume.objects.get(slug=resume_slug)
-    context = {'vacancy_slug': vacancy, 'resume_slug': resume_s}
+    context = {'vacancy_slug': vacancy}
 
     return render(request, 'applicant_app/vacancy_detail.html', context)
 
 
 def resume_create_view(request):
-    context = {'resume_create': Resume.objects.all()}
-
     if request.method == 'POST':
-        name_vacancy = request.POST.get('name_vacancy')
-        name = request.POST.get('name')
-        surname = request.POST.get('surname')
-        middle_name = request.POST.get('middle_name')
-        date_born = request.POST.get('date_born')
-        email = request.POST.get('email')
-        skills = request.POST.get('skills')
-        professional_experience = request.POST.get('professional_experience')
-        education = request.POST.get('education')
-
-        resume = Resume()
-
-        resume.name_vacancy = name_vacancy
-        resume.name = name
-        resume.surname = surname
-        resume.middle_name = middle_name
-        resume.date_born = date_born
-        resume.email = email
-        resume.skills = skills
-        resume.professional_experience = professional_experience
-        resume.education = education
-        resume.save()
-
-        return redirect('main')
+        form = ResumeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('vacancy_list')
+    else:
+        form = ResumeForm()
+    context = {'form': form}
 
     return render(request, 'applicant_app/resume_create.html', context)
 
@@ -97,48 +79,16 @@ def resume_delete_view(request):
     return render(request, 'applicant_app/resume_delete.html', context)
 
 
-class ResumeUpdateView(UpdateView):
-    template_name = 'applicant_app/resume_update.html'
-    model = Resume
-    slug_url_kwarg = 'resume_slug'
-    fields = ('name_vacancy', 'name', 'surname', 'middle_name', 'date_born', 'email', 'skills',
-              'professional_experience', 'education')
-    success_url = reverse_lazy('vacancy_list')
+def resume_update_view(request, pk):
+    resume = Resume.objects.get(pk=pk) if Resume.objects.filter(pk=pk).exists() else None
+    if request.method == 'POST':
+        form = ResumeForm(request.POST, instance=resume)
+        if form.is_valid():
+            form.save()
+            return redirect('vacancy_list')
+    else:
+        form = ResumeForm(instance=resume)
 
+    context = {'form': form}
 
-# def resume_update_view(request, resume_slug):
-#     resume_s = get_object_or_404(Resume, slug=resume_slug)
-#     context = {'resume_slug': resume_s}
-#
-#     return render(request, 'applicant_app/resume_update.html', context)
-
-
-# def resume_update_view(request, id):
-#     resume = Resume.objects.filter(pk=id)
-#     context = {'resume': resume}
-#
-#     if request.method == 'POST':
-#         name_vacancy = request.POST.get('name_vacancy')
-#         name = request.POST.get('name')
-#         surname = request.POST.get('surname')
-#         middle_name = request.POST.get('middle_name')
-#         date_born = request.POST.get('date_born')
-#         email = request.POST.get('email')
-#         skills = request.POST.get('skills')
-#         professional_experience = request.POST.get('professional_experience')
-#         education = request.POST.get('education')
-#
-#         resume.name_vacancy = name_vacancy
-#         resume.name = name
-#         resume.surname = surname
-#         resume.middle_name = middle_name
-#         resume.date_born = date_born
-#         resume.email = email
-#         resume.skills = skills
-#         resume.professional_experience = professional_experience
-#         resume.education = education
-#         resume.save()
-#
-#         return redirect('vacancy_list')
-#
-#     return render(request, 'applicant_app/resume_update.html', context)
+    return render(request, 'applicant_app/resume_update.html', context)

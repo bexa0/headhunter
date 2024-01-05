@@ -11,12 +11,22 @@
 
     <form method="POST">
         {% csrf_token %}
-        <p>Удаление по имени вакансии</p>
-        <input type="text" name="name_vacancy">
+        <p>Напишите названиe комании который вы хотите удалить</p>
+        <input type="text" name="name_company">
         <br><br>
-        <button type="submit">Delete</button>
+        <input type="submit" value="Delete">
     </form>
+    <br>
+    <p><a href="{% url 'resume_list' %}">back to resume list</a></p>
 
-    <p><a href="{% url 'resume_list' %}">Back to Resume List</a></p>
+<!--    <form method="POST">-->
+<!--        {% csrf_token %}-->
+<!--        <p>Удаление по имени вакансии</p>-->
+<!--        <input type="text" name="name_vacancy">-->
+<!--        <br><br>-->
+<!--        <button type="submit">Delete</button>-->
+<!--    </form>-->
+
+<!--    <p><a href="{% url 'resume_list' %}">Back to Resume List</a></p>-->
 
 {% endblock content %}

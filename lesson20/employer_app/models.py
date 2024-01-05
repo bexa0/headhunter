@@ -16,7 +16,7 @@ class Vacancy(models.Model):
         return f'{self.name_vacancy} - {self.name_company}'
 
     def get_absolute_url(self):
-        return reverse('vacancy_slug', kwargs={'vacancy_slug': self.slug})
+        return reverse('vacancy_slug', kwargs={'vacancy_slug': self.slug, 'pk': self.pk})
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         if not self.slug:

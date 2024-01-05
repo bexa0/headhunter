@@ -5,30 +5,15 @@
 {% endblock title %}
 
 {% block content %}
-    <form method="POST">
-        {% csrf_token %}
-        <p>name vacancy</p>
-        <input type="text" name="name_vacancy">
+    <h1>Vacancy Create</h1>
 
-        <p>name company</p>
-        <input type="text" name="name_company">
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <br>
+    <input type="submit" value="Create">
+    <br>
+    <p><a href="{% url 'resume_list' %}">back to resume list</a></p>
+</form>
 
-        <p>salary</p>
-        <input type="number" name="salary">
-
-        <p>required skills</p>
-        <input type="text" name="required_skills">
-
-        <p>responsibilities</p>
-        <input type="text" name="responsibilities">
-
-        <p>address</p>
-        <input type="number" name="address">
-
-        <br><br>
-        <input type="submit">
-
-        <p><a href="{% url 'resume_list' %}">Back to Resume List</a></p>
-
-    </form>
 {% endblock content %}

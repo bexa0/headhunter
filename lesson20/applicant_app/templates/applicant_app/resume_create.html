@@ -7,39 +7,11 @@
 {% block content %}
     <h1>Resume Create</h1>
 
-    <form method="POST">
-        {% csrf_token %}
-        <p>name vacancy</p>
-        <input type="text" name="name_vacancy">
-
-        <p>name</p>
-        <input type="text" name="name">
-
-        <p>surname</p>
-        <input type="text" name="surname">
-
-        <p>middle name</p>
-        <input type="text" name="middle_name">
-
-        <p>date born</p>
-        <input type="date" name="date_born">
-
-        <p>email</p>
-        <input type="email" name="email">
-
-        <p>skills</p>
-        <input type="text" name="skills">
-
-        <p>professional experience</p>
-        <input type="text" name="professional_experience">
-
-        <p>education</p>
-        <input type="text" name="education">
-
-        <br><br>
-        <input type="submit">
-        <br>
-        <p><a href="{% url 'vacancy_list' %}">Back to Vacancy List</a></p>
-
-    </form>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create">
+    <br>
+    <p><a href="{% url 'vacancy_list' %}">back to vacancy list</a></p>
+</form>
 {% endblock content %}

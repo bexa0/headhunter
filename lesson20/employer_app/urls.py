@@ -8,4 +8,5 @@ urlpatterns = [
     path('vacancy-list/detail/<slug:vacancy_slug>/<slug:resume_slug>/', vacancy_detail_view, name='vacancy_detail_staff'),
     path('vacancy-create/', vacancy_create_view, name='vacancy_create'),
     path('vacancy-delete/', vacancy_delete_view, name='vacancy_delete'),
+    path('vacancy-update/<int:pk>/', vacancy_update_view, name='vacancy_update'),
 ]

@@ -1,0 +1,12 @@
+body{
+    background-color: blue;
+}
+.main_div{
+    width: 500px;
+    margin: auto;
+    margin-top: 50px;
+}
+.div_vacancy_list{
+    width: 600px;
+    height: 700px;
+}
