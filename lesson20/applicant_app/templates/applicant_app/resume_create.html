@@ -5,13 +5,17 @@
 {% endblock title %}
 
 {% block content %}
+
+<div class="div_resume_create">
     <h1>Resume Create</h1>
 
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Create">
-    <br>
-    <p><a href="{% url 'vacancy_list' %}">back to vacancy list</a></p>
-</form>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Create">
+        <br>
+        <p><a href="{% url 'vacancy_list' %}">back to vacancy list</a></p>
+    </form>
+</div>
+
 {% endblock content %}

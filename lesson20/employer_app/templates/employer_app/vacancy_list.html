@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-
+<div class="div_vacancy_list">
     <h1>Vacancy List</h1>
 
     {% for vacancy in vacancy_list %}
@@ -15,5 +15,5 @@
 
     <br>
     <p><a href="{% url 'main' %}">Back</a></p>
-
+</div>
 {% endblock content %}

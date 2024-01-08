@@ -5,15 +5,17 @@
 {% endblock title %}
 
 {% block content %}
+
+<div class="div_vacancy_create">
     <h1>Vacancy Create</h1>
 
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <br>
-    <input type="submit" value="Create">
-    <br>
-    <p><a href="{% url 'resume_list' %}">back to resume list</a></p>
-</form>
-
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <input type="submit" value="Create">
+        <br>
+        <p><a href="{% url 'resume_list' %}">back to resume list</a></p>
+    </form>
+</div>
 {% endblock content %}

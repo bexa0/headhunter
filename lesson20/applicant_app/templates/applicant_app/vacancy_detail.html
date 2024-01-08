@@ -6,6 +6,7 @@
 
 {% block content %}
 
+<div class="div_vacancy_detail">
     <h1>Vacancy Detail</h1>
 
     <p><a href="{% url 'create_resume' %}">Create Resume</a></p>
@@ -22,5 +23,5 @@
     <br>
     <p><a href="{% url 'main' %}">Back</a></p>
     <p><a href="{% url 'vacancy_list' %}">Back to Vacancy List</a></p>
-
+</div>
 {% endblock content %}

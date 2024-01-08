@@ -1,5 +1,5 @@
 body{
-    background-color: blue;
+    background-color: wheat;
 }
 .main_div{
     width: 500px;
@@ -7,6 +7,108 @@ body{
     margin-top: 50px;
 }
 .div_vacancy_list{
+    width: 450px;
+    height: 500px;
+    background-color: darkgrey;
+    padding-top: 20px;
+    padding-left: 20px;
+    border-radius: 13px;
+}
+.div_vacancy_list h1{
+    margin-left: 100px;
+}
+.div_resume_list{
+    width: 450px;
+    height: 500px;
+    background-color: darkgrey;
+    padding-top: 20px;
+    padding-left: 20px;
+    border-radius: 13px;
+}
+.div_resume_list h1{
+    margin-left: 100px;
+}
+.div_vacancy_detail{
     width: 600px;
-    height: 700px;
+    height: 600px;
+    background-color: #B59410;
+    border-radius: 13px;
+    padding-left: 20px;
+}
+.div_vacancy_detail h1{
+    margin-left: 160px;
+}
+.div_resume_detail{
+    width: 600px;
+    height: 600px;
+    background-color: #B59410;
+    border-radius: 13px;
+    padding-left: 20px;
+}
+.div_resume_detail h1{
+    margin-left: 160px;
+}
+.div_vacancy_create{
+    width: 400px;
+    height: 500px;
+    background-color: whitesmoke;
+    border-radius: 13px;
+    padding-left: 10px;
+}
+.div_vacancy_create h1{
+    margin-left: 100px;
+}
+.div_resume_create{
+    width: 400px;
+    height: 500px;
+    background-color: whitesmoke;
+    border-radius: 13px;
+    padding-left: 10px;
+}
+.div_resume_create h1{
+    margin-left: 100px;
+}
+.div_vacancy_update{
+    width: 500px;
+    height: 370px;
+    background-color: purple;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 13px;
+    color: white;
+}
+.div_vacancy_update a{
+    color: red;
+}
+.div_resume_update{
+    width: 500px;
+    height: 440px;
+    background-color: purple;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 13px;
+    color: white;
+}
+.div_resume_update a{
+    color: red;
+}
+.div_resume_delete{
+    width: 350px;
+    height: 300px;
+    background-color: darkgrey;
+    border-radius: 13px;
+    padding-left: 10px;
+}
+.div_resume_delete h1{
+    margin-left: 50px;
+}
+.div_vacancy_delete{
+    width: 350px;
+    height: 300px;
+    background-color: darkgrey;
+    border-radius: 13px;
+    padding-left: 10px;
+}
+.div_vacancy_delete h1{
+    margin-left: 50px;
 }

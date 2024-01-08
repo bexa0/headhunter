@@ -5,12 +5,13 @@
 
 {% block content %}
 
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Update</button>
-</form>
-<br>
-<p><a href="{% url 'resume_list' %}">back to resume list</a></p>
-
+<div class="div_vacancy_update">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update</button>
+    </form>
+    <br>
+    <p><a href="{% url 'resume_list' %}">back to resume list</a></p>
+</div>
 {% endblock content %}
